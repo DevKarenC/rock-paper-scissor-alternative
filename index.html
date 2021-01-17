@@ -3,12 +3,109 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Rock Paper Scissors</title>
-    <meta name="description" content="" />
+    <title>Earth, Water, Fire</title>
+    <meta
+      name="description"
+      content="Play Rock, Paper, Scissors in 3 Elements!"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <div class="wrapper">
+      <header>
+        <div class="title">
+          The Survival of 3 Elements:
+          <span class="earth-title-text">Earth</span>,
+          <span class="water-title-text">Water</span>,
+          <span class="fire-title-text">Fire</span>
+        </div>
+        <div class="description">
+          <p></p>
+        </div>
+      </header>
+      <div class="content">
+        <div class="select-element">Choose Your Element!</div>
+        <div class="elements">
+          <div class="fire-button-wrapper">
+            <button id="fire-button">
+              <img
+                class="button-image"
+                src="./images/fire.png"
+                alt="Button to choose the fire element"
+              />
+            </button>
+            <div class="element-text">Fire</div>
+          </div>
+          <div class="grass-button-wrapper">
+            <button id="grass-button">
+              <img
+                class="button-image"
+                src="./images/grass.png"
+                alt="Button to choose the grass element"
+              />
+            </button>
+            <div class="element-text">Grass</div>
+          </div>
+          <div class="water-button-wrapper">
+            <button id="water-button">
+              <img
+                class="button-image"
+                src="./images/water-drop.png"
+                alt="Button to choose the water element"
+              />
+            </button>
+            <div class="element-text">Water</div>
+          </div>
+        </div>
+        <div class="results">
+          <div class="score">
+            <div class="player-score">
+              Player Life:
+              <div class="hearts-container"></div>
+            </div>
+            <div class="computer-score">
+              Computer Life:
+              <div class="hearts-container"></div>
+            </div>
+          </div>
+          <div class="message"></div>
+          <div class="game-history"></div>
+        </div>
+      </div>
+      <footer>
+        <div class="flat-icon">
+          Icons made by
+          <a href="https://www.flaticon.com/authors/fjstudio" title="fjstudio"
+            >fjstudio</a
+          >
+          and
+          <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
+            >Freepik</a
+          >
+          from
+          <a href="https://www.flaticon.com/" title="Flaticon"
+            >www.flaticon.com</a
+          >
+        </div>
+        <div class="social-media">
+          <div class="github">Github Link</div>
+        </div>
+      </footer>
+    </div>
     <script src="index.js" async defer></script>
   </body>
 </html>
