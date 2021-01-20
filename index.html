@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="index.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
       rel="stylesheet"
     />
     <link
@@ -28,17 +28,16 @@
     <div class="wrapper">
       <header>
         <div class="title">
-          The Survival of 3 Elements:
-          <span class="earth-title-text">Earth</span>,
+          The Survival of 3 Elements
+          <!-- <span class="earth-title-text">Earth</span>,
           <span class="water-title-text">Water</span>,
-          <span class="fire-title-text">Fire</span>
+          <span class="fire-title-text">Fire</span> -->
         </div>
-        <div class="description">
-          <p></p>
+        <div class="top-description">
+          Win by collecting 5 hearts first! Select element to start.
         </div>
       </header>
       <div class="content">
-        <div class="select-element">Choose Your Element!</div>
         <div class="elements">
           <div class="fire-button-wrapper">
             <button id="fire-button">
@@ -50,15 +49,15 @@
             </button>
             <div class="element-text">Fire</div>
           </div>
-          <div class="grass-button-wrapper">
-            <button id="grass-button">
+          <div class="earth-button-wrapper">
+            <button id="earth-button">
               <img
                 class="button-image"
-                src="./images/grass.png"
-                alt="Button to choose the grass element"
+                src="./images/earth.png"
+                alt="Button to choose the earth element"
               />
             </button>
-            <div class="element-text">Grass</div>
+            <div class="element-text">Earth</div>
           </div>
           <div class="water-button-wrapper">
             <button id="water-button">
@@ -74,16 +73,18 @@
         <div class="results">
           <div class="score">
             <div class="player-score">
-              Player Life:
-              <div class="hearts-container"></div>
+              Player Score:
+              <div class="player-hearts-container"></div>
             </div>
             <div class="computer-score">
-              Computer Life:
-              <div class="hearts-container"></div>
+              Computer Score:
+              <div class="computer-hearts-container"></div>
             </div>
           </div>
-          <div class="message"></div>
-          <div class="game-history"></div>
+          <div class="message-container">
+            <div class="round"></div>
+            <div class="message"></div>
+          </div>
         </div>
       </div>
       <footer>
@@ -102,7 +103,14 @@
           >
         </div>
         <div class="social-media">
-          <div class="github">Github Link</div>
+          <div class="github">
+            <a
+              href="https://github.com/DevKarenC/rock-paper-scissor"
+              target="_blank"
+            >
+              <img src="./images/github.png" alt="Github logo" />
+            </a>
+          </div>
         </div>
       </footer>
     </div>
