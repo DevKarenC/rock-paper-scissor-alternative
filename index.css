@@ -70,9 +70,7 @@ header {
   padding: 1rem 0;
 }
 
-#fire-button,
-#earth-button,
-#water-button {
+.element-button {
   background-color: transparent;
   border: 0px;
   cursor: pointer;
@@ -111,9 +109,14 @@ header {
   letter-spacing: 1px;
 }
 
-.player-hearts-container,
-.computer-hearts-container {
-  padding: 1rem 0 2.5rem 0;
+.player-hearts,
+.computer-hearts {
+  /* padding: 1rem 0 2.5rem 0; */
+}
+
+.heart {
+  width: 20px;
+  height: auto;
 }
 
 .message-container {

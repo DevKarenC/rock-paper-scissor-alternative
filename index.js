@@ -1,75 +1,63 @@
-class Game {
-  constructor() {
-    this.playerScore = 0;
-    this.computerScore = 0;
-    this.playerChoice = "";
-    this.computerChoice = "";
-    this.fireButton = document.querySelector("#fire-button");
-    this.earthButton = document.querySelector("#earth-button");
-    this.waterButton = document.querySelector("#water-button");
-  }
-  randomizeComputerElement() {
-    const elements = ["Fire", "Earth", "Water"];
+function game() {
+  let round = 1;
+  let playerScore = 0;
+  let computerScore = 0;
+  const buttons = Array.from(document.querySelectorAll(".element-button"));
+  const roundDisplay = document.querySelector(".round");
+  const message = document.querySelector(".message");
+  const playerHeartContainer = document.querySelector(".player-hearts");
+  const computerHeartContainer = document.querySelector(".computer-hearts");
+  const heart = document.createElement("img");
+  heart.src = "./images/heart.svg";
+  heart.classList.add("heart");
+
+  function randomizeComputerElement() {
+    const elements = ["fire", "earth", "water"];
     const randomElement = elements[Math.floor(Math.random() * elements.length)];
-    this.computerChoice = randomElement;
-    console.log(this.computerChoice);
+    console.log(randomElement);
+    return randomElement;
   }
-  choosePlayerElement() {
-    this.fireButton.addEventListener("click", (e) => {
-      this.playerChoice = "Fire";
-      console.log(this.playerChoice);
-      this.randomizeComputerElement();
-      this.determineWinner();
-    });
-    this.earthButton.addEventListener("click", (e) => {
-      this.playerChoice = "Earth";
-      console.log(this.playerChoice);
-      this.randomizeComputerElement();
-      this.determineWinner();
-    });
-    this.waterButton.addEventListener("click", (e) => {
-      this.playerChoice = "Water";
-      console.log(this.playerChoice);
-      this.randomizeComputerElement();
-      this.determineWinner();
-    });
-  }
-  determineWinner() {
-    if (this.playerChoice === this.computerChoice) {
-      console.log(
-        `It's a Tie! You chose ${this.playerChoice} and your opponent also chose ${this.computerChoice}.`
-      );
+
+  function play(player, computer) {
+    roundDisplay.textContent = `Round ${round}`;
+    if (player === computer) {
+      message.textContent = `You and your opponent have both received the blessings of the same element... Go again.`;
     } else if (
-      (this.playerChoice === "Fire" && this.computerChoice === "Earth") ||
-      (this.playerChoice === "Earth" && this.computerChoice === "Water") ||
-      (this.playerChoice === "Water" && this.computerChoice === "Fire")
+      (player === "fire" && computer === "earth") ||
+      (player === "earth" && computer === "water") ||
+      (player === "water" && computer === "fire")
     ) {
-      this.computerScore++;
-      console.log(this.computerScore);
-      console.log(
-        `You Win! You chose ${this.playerChoice} and your opponent chose ${this.computerChoice}.`
-      );
+      playerScore++;
+      playerHeartContainer.appendChild(heart);
+      message.textContent = `You made a wise move! Your sacred element of ${player} destroyed your opponent's element of ${computer}.`;
     } else if (
-      (this.playerChoice === "Fire" && this.computerChoice === "Water") ||
-      (this.playerChoice === "Earth" && this.computerChoice === "Fire") ||
-      (this.playerChoice === "Water" && this.computerChoice === "Earth")
+      (player === "fire" && computer === "water") ||
+      (player === "earth" && computer === "fire") ||
+      (player === "water" && computer === "earth")
     ) {
-      this.playerScore++;
-      console.log(this.playerScore);
-      console.log(
-        `You Lose. You chose ${this.playerChoice} and your opponent chose ${this.computerChoice}.`
-      );
+      computerScore++;
+      message.textContent = `Poor soul... Your element of ${player} was defeated by your opponent's element of ${computer}. Wishing you better luck next time.`;
     }
+    round++;
   }
-  playRound() {}
-  displayResult() {}
-  addHeart() {}
-  endGame() {}
-  resetGame() {}
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const player = e.target.classList[0];
+      const computer = randomizeComputerElement();
+      play(player, computer);
+    });
+  });
 }
 
-let testGame = new Game();
-testGame.choosePlayerElement();
+game();
+
+// class Game {
+//
+//   addHeart() {}
+//   endGame() {}
+//   resetGame() {}
+// }
 
 // make the game Class flexible (i.e. do not hard code the elements or choices)
 // other people using the class in their own environment should be able to feed in their own parameters
