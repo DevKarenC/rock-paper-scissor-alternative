@@ -6,16 +6,31 @@ function game() {
   const roundDisplay = document.querySelector(".round");
   const message = document.querySelector(".message");
   const playerHeartContainer = document.querySelector(".player-hearts");
+  console.log(playerHeartContainer);
   const computerHeartContainer = document.querySelector(".computer-hearts");
-  const heart = document.createElement("img");
-  heart.src = "./images/heart.svg";
-  heart.classList.add("heart");
+  // const heart = document.createElement("span");
+
+  // heart.appendChild(heartImg);
 
   function randomizeComputerElement() {
     const elements = ["fire", "earth", "water"];
     const randomElement = elements[Math.floor(Math.random() * elements.length)];
     console.log(randomElement);
     return randomElement;
+  }
+
+  function createHeart() {
+    const heart = document.createElement("img");
+    heart.src = "./images/heart.svg";
+    heart.classList.add("heart");
+    return heart;
+  }
+
+  function createBrokenHeart() {
+    const brokenHeart = document.createElement("img");
+    brokenHeart.src = "./images/broken-heart.svg";
+    brokenHeart.classList.add("broken-heart");
+    return brokenHeart;
   }
 
   function play(player, computer) {
@@ -27,14 +42,29 @@ function game() {
       (player === "earth" && computer === "water") ||
       (player === "water" && computer === "fire")
     ) {
+      if (playerScore === 0) {
+        playerHeartContainer.appendChild(createHeart());
+      } else if (playerScore < 5) {
+        playerHeartContainer.insertBefore(
+          createHeart(),
+          playerHeartContainer.firstElementChild.nextSibling
+        );
+      }
       playerScore++;
-      playerHeartContainer.appendChild(heart);
       message.textContent = `You made a wise move! Your sacred element of ${player} destroyed your opponent's element of ${computer}.`;
     } else if (
       (player === "fire" && computer === "water") ||
       (player === "earth" && computer === "fire") ||
       (player === "water" && computer === "earth")
     ) {
+      if (computerScore === 0) {
+        computerHeartContainer.appendChild(createBrokenHeart());
+      } else if (computerScore < 5) {
+        computerHeartContainer.insertBefore(
+          createBrokenHeart(),
+          computerHeartContainer.firstElementChild.nextSibling
+        );
+      }
       computerScore++;
       message.textContent = `Poor soul... Your element of ${player} was defeated by your opponent's element of ${computer}. Wishing you better luck next time.`;
     }

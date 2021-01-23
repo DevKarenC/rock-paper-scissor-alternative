@@ -59,7 +59,8 @@ header {
   flex-direction: column;
   justify-content: center;
   width: 75%;
-  height: 45%;
+  min-height: 65%;
+  max-height: 65%;
   margin: auto;
   min-height: 450px;
 }
@@ -102,28 +103,46 @@ header {
 
 .player-score,
 .computer-score {
-  border: 3px solid black;
+  border: 3px solid #4a36aa;
   font-family: "Chakra Petch", sans-serif;
   font-size: 1.25rem;
   padding: 1rem 1.5rem 1rem;
   letter-spacing: 1px;
+  min-height: 60px;
+  max-height: 60px;
 }
 
 .player-hearts,
 .computer-hearts {
-  /* padding: 1rem 0 2.5rem 0; */
+  display: flex;
+  flex-direction: row;
 }
 
-.heart {
+.heart,
+.broken-heart {
   width: 20px;
   height: auto;
+  padding: 5px 5px 0 1px;
 }
 
 .message-container {
-  background-color: black;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #dcd6f7;
+  min-height: 150px;
+  max-height: 150px;
   width: 100%;
-  color: white;
+  color: #4a36aa;
+}
+
+.round,
+.message {
+  font-family: "Chakra Petch", sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.25rem;
+  text-align: center;
+  padding: 0 1rem;
 }
 
 /* FOOTER */
