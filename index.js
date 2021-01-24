@@ -97,7 +97,7 @@ function game() {
       resetGame();
     } else if (computerScore === 5) {
       const lossMessage = document.createElement("div");
-      lossMessage.textContent = "You did not survive... Try again.";
+      lossMessage.textContent = `You did not survive...`;
       results.appendChild(finalMessageDiv);
       finalMessageDiv.appendChild(lossMessage);
       buttons.forEach((button) => {
