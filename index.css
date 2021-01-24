@@ -62,8 +62,6 @@ div span {
   flex-direction: column;
   justify-content: center;
   width: 85%;
-  min-height: 70%;
-  max-height: 70%;
   margin: auto;
   min-height: 450px;
 }
@@ -167,7 +165,7 @@ div span {
   letter-spacing: 1px;
   font-size: 1.75rem;
   text-align: center;
-  padding: 1.5rem 0 2rem 0;
+  padding: 2rem 0;
 }
 
 .reset-button {
@@ -196,10 +194,9 @@ footer {
   align-items: center;
   font-family: "Lato", sans-serif;
   font-size: 14px;
-  padding: 1% 0 1% 2%;
-  position: absolute;
-  bottom: 0;
+  padding: 10% 0 1% 2%;
   width: 98%;
+  color: gray;
 }
 
 .social-media {
@@ -244,6 +241,15 @@ footer {
 }
 
 /* MEDIA QUERIES */
+@media (max-width: 571px) {
+  header {
+    height: 28%;
+  }
+  .title {
+    padding: 1rem 0;
+  }
+}
+
 @media (max-width: 530px) {
   .player-score,
   .computer-score {
