@@ -59,8 +59,8 @@ header {
   flex-direction: column;
   justify-content: center;
   width: 75%;
-  min-height: 65%;
-  max-height: 65%;
+  min-height: 70%;
+  max-height: 70%;
   margin: auto;
   min-height: 450px;
 }
@@ -83,7 +83,7 @@ header {
   height: auto;
 }
 
-.button-image:hover {
+.button-image-hover:hover {
   animation: wiggle 0.75s;
   animation-iteration-count: infinite;
 }
@@ -95,6 +95,11 @@ header {
   padding: 0 0 1rem 0;
 }
 
+.results {
+  display: flex;
+  flex-direction: column;
+}
+
 .score {
   display: flex;
   justify-content: space-evenly;
@@ -104,6 +109,7 @@ header {
 .player-score,
 .computer-score {
   border: 3px solid #4a36aa;
+  border-radius: 10px;
   font-family: "Chakra Petch", sans-serif;
   font-size: 1.25rem;
   padding: 1rem 1.5rem 1rem;
@@ -130,10 +136,11 @@ header {
   flex-direction: column;
   justify-content: space-evenly;
   background-color: #dcd6f7;
+  border-radius: 20px;
   min-height: 150px;
   max-height: 150px;
   width: 100%;
-  color: #4a36aa;
+  color: black;
 }
 
 .round,
@@ -143,6 +150,28 @@ header {
   font-size: 1.25rem;
   text-align: center;
   padding: 0 1rem;
+}
+
+.final-message {
+  font-family: "Chakra Petch", sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.75rem;
+  text-align: center;
+  padding: 1.5rem 0 2rem 0;
+}
+
+.reset-button {
+  border: 0px;
+  border-radius: 30px;
+  background-color: red;
+  color: white;
+  font-family: "Chakra Petch", sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.25rem;
+  text-align: center;
+  width: 150px;
+  padding: 1rem 1.25rem;
+  margin: auto;
 }
 
 /* FOOTER */

@@ -6,16 +6,11 @@ function game() {
   const roundDisplay = document.querySelector(".round");
   const message = document.querySelector(".message");
   const playerHeartContainer = document.querySelector(".player-hearts");
-  console.log(playerHeartContainer);
   const computerHeartContainer = document.querySelector(".computer-hearts");
-  // const heart = document.createElement("span");
-
-  // heart.appendChild(heartImg);
 
   function randomizeComputerElement() {
     const elements = ["fire", "earth", "water"];
     const randomElement = elements[Math.floor(Math.random() * elements.length)];
-    console.log(randomElement);
     return randomElement;
   }
 
@@ -51,7 +46,7 @@ function game() {
         );
       }
       playerScore++;
-      message.textContent = `You made a wise move! Your sacred element of ${player} destroyed your opponent's element of ${computer}.`;
+      message.textContent = `You made a wise move! Your sacred element of ${player.toUpperCase()} destroyed your opponent's element of ${computer.toUpperCase()}.`;
     } else if (
       (player === "fire" && computer === "water") ||
       (player === "earth" && computer === "fire") ||
@@ -66,16 +61,62 @@ function game() {
         );
       }
       computerScore++;
-      message.textContent = `Poor soul... Your element of ${player} was defeated by your opponent's element of ${computer}. Wishing you better luck next time.`;
+      message.textContent = `Poor soul... Your element of ${player.toUpperCase()} was defeated by your opponent's element of ${computer.toUpperCase()}. Wishing you better luck next time.`;
     }
     round++;
   }
 
+  function resetGame() {
+    const resetButton = document.createElement("button");
+    const results = document.querySelector(".results");
+    resetButton.classList.add("reset-button");
+    resetButton.textContent = "Play Again";
+    results.appendChild(resetButton);
+    resetButton.addEventListener("click", function handleReset() {
+      location.reload();
+    });
+  }
+
+  function determineWinner() {
+    const finalMessageDiv = document.createElement("div");
+    finalMessageDiv.classList.add("final-message");
+    const results = document.querySelector(".results");
+    const buttonImages = document.querySelectorAll(".button-image");
+    if (playerScore === 5) {
+      const winMessage = document.createElement("div");
+      winMessage.textContent = "You Survived!";
+      results.appendChild(finalMessageDiv);
+      finalMessageDiv.appendChild(winMessage);
+      buttons.forEach((button) => {
+        button.disabled = true;
+        button.style.filter = "grayscale(90%)";
+      });
+      buttonImages.forEach((buttonImage) => {
+        buttonImage.classList.remove("button-image-hover");
+      });
+      resetGame();
+    } else if (computerScore === 5) {
+      const lossMessage = document.createElement("div");
+      lossMessage.textContent = "You did not survive... Try again.";
+      results.appendChild(finalMessageDiv);
+      finalMessageDiv.appendChild(lossMessage);
+      buttons.forEach((button) => {
+        button.disabled = true;
+        button.style.filter = "grayscale(90%)";
+      });
+      buttonImages.forEach((buttonImage) => {
+        buttonImage.classList.remove("button-image-hover");
+      });
+      resetGame();
+    }
+  }
+
   buttons.forEach((button) => {
-    button.addEventListener("click", (e) => {
+    button.addEventListener("click", function handleButton(e) {
       const player = e.target.classList[0];
       const computer = randomizeComputerElement();
       play(player, computer);
+      determineWinner();
     });
   });
 }
