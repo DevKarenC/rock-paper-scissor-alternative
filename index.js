@@ -122,15 +122,3 @@ function game() {
 }
 
 game();
-
-// class Game {
-//
-//   addHeart() {}
-//   endGame() {}
-//   resetGame() {}
-// }
-
-// make the game Class flexible (i.e. do not hard code the elements or choices)
-// other people using the class in their own environment should be able to feed in their own parameters
-// and still be able to play the game
-// fix the hard-coding of elements
